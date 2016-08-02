@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Drools之LHS和RHS | ζζ</title>
+  <meta name="author" content="zaozaool. Powered by Hexo.js">
+  
+  <meta name="description" content="LHS约束连接对于对象内部的多个约束的连接，可以采用“&amp;amp;&amp;amp;”（and）、“||”(or)和“,”(and)来实现，表面上看“,”与“&amp;amp;&amp;amp;”具有相同的含义，但是有一点需要注意，“，”与“&amp;amp;&amp;amp;”和“||” 不能混合使用
+比较操作符操作符包括：&amp;gt;、&amp;gt;=、&amp;lt;、&amp;lt;=、= =、!=、contains、not contains、memberof、not memberof、matches、not matches">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Drools之LHS和RHS"/>
+  <meta property="og:site_name" content="ζζ"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="ζζ" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">ζζ</a></h1>
+  <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-04-25T07:51:42.000Z"><a href="/2016/04/25/Drools之LHS和RHS/">2016-04-25</a></time>
+      
+      
+  
+    <h1 class="title">Drools之LHS和RHS</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="LHS">LHS</h1><h2 id="约束连接">约束连接</h2><p>对于对象内部的多个约束的连接，可以采用“&amp;&amp;”（and）、“||”(or)和“,”(and)来实现，表面上看“,”与“&amp;&amp;”具有相同的含义，但是有一点需要注意，“，”与“&amp;&amp;”和“||” 不能混合使用</p>
+<h2 id="比较操作符">比较操作符</h2><p>操作符包括：&gt;、&gt;=、&lt;、&lt;=、= =、!=、contains、not contains、memberof、not memberof、matches、not matches<br><a id="more"></a><br>contains、not contains、memberof、not memberof都是用来判断Fact对象的某个字段与集合（Collection/Array）的关系，区别在于contains和not contains中集合类型的数据作为比较项，而memberOf和not memberOf中集合类型的数据作为被比较项<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#contains</span><br><span class="line">rule <span class="string">"rule1"</span></span><br><span class="line">    when    </span><br><span class="line">        $order:Order(items contains <span class="string">"手机"</span>);</span><br><span class="line">    then      </span><br><span class="line">        System.out.println($order.getName());  </span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">#memberOf</span><br><span class="line">rule <span class="string">"rule1"</span>    </span><br><span class="line">    when   </span><br><span class="line">        $order:Order(<span class="string">"手机"</span> memberOf items);  </span><br><span class="line">    then      </span><br><span class="line">        System.out.println($order.getName()); </span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>matches和not matches是用来对某个Fact的字段与标准的Java正则表达式进行相似匹配，被比较的字符串可以是一个标准的Java正则表达式，但有一点需要注意，那就是正则表达式字符串当中不用考虑“\”的转义问题</p>
+<h1 id="RHS">RHS</h1><p>不建议在RHS代码当中有条件判断，如果需要条件判断，那么请重新考虑将其放在LHS当中，否则就违背了使用规则的初衷。</p>
+<p>更多RHS的相关知识请参考一下几篇文章：<br><a href="http://zaozaool.github.io/2016/04/25/Drools宏对象的常用方法/">Drools宏对象的常用方法</a></p>
+<h1 id="Drools文件中的package和Java文件中package的区别">Drools文件中的package和Java文件中package的区别</h1><p>规则文件当中的package和Java语言当中的package有相似之处，也有不同之处。在Java 当中package的作用是用来对功能相似或相关的文件放在同一个package下进行管理，这种package管理既有物理上Java文件位置的管理也有逻辑上的文件位置的管理，在Java当中这种通过package管理文件要求在文件位置在逻辑上与物理上要保持一致；在Drools的规则文件当中package对于规则文件中规则的管理只限于逻辑上的管理，而不管其在物理上的位置如何，这点是规则与Java文件的package的区别。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/后端/">后端</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Drools/">Drools</a>, <a href="/tags/Java/">Java</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">唠叨几句吧</h1>
+
+  
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaozaool';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaozaool';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zaozaool.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/其他/">其他</a><small>10</small></li>
+  
+    <li><a href="/categories/前端/">前端</a><small>7</small></li>
+  
+    <li><a href="/categories/后端/">后端</a><small>36</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/ABAP/">ABAP</a><small>5</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
+  
+    <li><a href="/tags/Drools/">Drools</a><small>7</small></li>
+  
+    <li><a href="/tags/ERP/">ERP</a><small>1</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
+  
+    <li><a href="/tags/Echarts/">Echarts</a><small>1</small></li>
+  
+    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+  
+    <li><a href="/tags/Grails/">Grails</a><small>1</small></li>
+  
+    <li><a href="/tags/Groovy/">Groovy</a><small>1</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>12</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
+  
+    <li><a href="/tags/Jmesa/">Jmesa</a><small>1</small></li>
+  
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>3</small></li>
+  
+    <li><a href="/tags/Maven/">Maven</a><small>3</small></li>
+  
+    <li><a href="/tags/Node-js/">Node.js</a><small>12</small></li>
+  
+    <li><a href="/tags/SAP/">SAP</a><small>6</small></li>
+  
+    <li><a href="/tags/SCM/">SCM</a><small>1</small></li>
+  
+    <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
+  
+    <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
+  
+    <li><a href="/tags/Tomcat/">Tomcat</a><small>1</small></li>
+  
+    <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>2</small></li>
+  
+    <li><a href="/tags/npm/">npm</a><small>1</small></li>
+  
+    <li><a href="/tags/可视化/">可视化</a><small>3</small></li>
+  
+    <li><a href="/tags/备忘/">备忘</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>1</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>0</small></li>
+  
+    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+  
+    <li><a href="/tags/项目/">项目</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 zaozaool. Powered by Hexo.js
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

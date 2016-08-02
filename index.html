@@ -1,0 +1,798 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ζζ</title>
+  <meta name="author" content="zaozaool. Powered by Hexo.js">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="ζζ"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="ζζ" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">ζζ</a></h1>
+  <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2100-01-01T00:00:01.000Z"><a href="/2100/01/01/发布统计/">2100-01-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2100/01/01/发布统计/">发布统计</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <script src="http://echarts.baidu.com/dist/echarts.min.js"></script>
+<script src="http://echarts.baidu.com/asset/theme/dark.js"></script>
+
+<script src="http://zaozaool.github.io/json_data/data.js"></script>
+
+<p><div id="main" style=" width: 800px; height: 600px; cursor: default;"></div></p>
+<script type="text/javascript">
+    (function(){
+        var _json = {};
+        var _catArr = [];
+        var i = 0;
+        var now = new Date();
+        while (i < _data['size']) {
+            var d = _data['date'][i];
+            var t = _data['tag'][i];
+            var c = _data['category'][i];
+            i++;
+            if (d == '_end') {
+                continue;
+            }
+            d = new Date(d);
+            if (d > now) {
+                continue;
+            }
+            var month = 0;
+            if (d.getMonth() < 9) {
+                month = parseInt(d.getFullYear() + "0" + (d.getMonth() + 1));
+            } else {
+                month = parseInt(d.getFullYear() + "" + (d.getMonth() + 1));
+            }
+
+            if (!_json._monthArr) {
+                _json._monthArr = [];
+            }
+            if (_json._monthArr.indexOf(month) < 0) {
+                _json._monthArr.push(month);
+            }
+
+            //取得开始和结束月份
+            if (!_json._maxMonth || _json._maxMonth < month) {
+                _json._maxMonth = month;
+            }
+            if (!_json._minMonth || _json._minMonth > month) {
+                _json._minMonth = month;
+            }
+
+            //统计每个分类->月份->标签的次数
+
+            var tagArr = t.split(",");
+            var catArr = c.split(",");
+            for (var tag in tagArr) {
+                //删除左右两端的空格
+　　            tag = tagArr[tag].replace(/(^\s*)|(\s*$)/g, "");
+　　            if (!_json._tagArr) {
+                    _json._tagArr = [];
+                }
+                if (_json._tagArr.indexOf(tag) < 0) {
+                    _json._tagArr.push(tag);
+                }
+　　            
+　　            for (var cat in catArr) {
+　　                //删除左右两端的空格
+　　                cat = catArr[cat].replace(/(^\s*)|(\s*$)/g, "");
+　　                if (!_json._catArr) {
+                        _json._catArr = [];
+                    }
+                    if (_json._catArr.indexOf(cat) < 0) {
+                        _json._catArr.push(cat);
+                    }
+
+                    if (!_json[cat]) {
+                        _json[cat] = {};
+                    }
+
+                    if (!_json[cat][month]) {
+                        _json[cat][month] = {};
+                    }
+
+                    if (!_json[cat][month][tag]) {
+                        _json[cat][month][tag] = 1;
+                    } else {
+                        _json[cat][month][tag]++;
+                    }
+　　            }
+            }
+        }
+
+        //给时间数组排序
+        _json._monthArr.sort();
+        _json._catArr.sort();
+        _json._tagArr.sort();
+
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        //var myChart = echarts.init(document.getElementById('main'), 'dark');
+
+        // 指定图表的配置项和数据
+        var dataMap = {};
+        var totalMax = 0;
+        function dataFormatter(obj) {
+            //var pList = ['Java', '工具', 'Linux', 'SCM', '可视化', 'Node.js', '备忘', 'ERP', 'SAP', 'JavaScript', '项目', 'Git', 'ABAP', 'Drools'];
+            //var pList = _json._tagArr;
+            var temp;
+            var returnObj = {};
+            for (var month in _json._monthArr) {
+                var max = 0;
+                var sum = 0;
+                month = _json._monthArr[month];
+                temp = obj[month];
+
+                for (var i in _json._tagArr) {
+                    var tag = _json._tagArr[i];
+                    if (!temp) {
+                        temp = {};
+                    }
+                    if (!temp[tag]) {
+                        temp[tag] = 0;
+                    }
+                    max = Math.max(max, temp[tag]);
+                    totalMax = Math.max(totalMax, max);
+                    sum += temp[tag];
+
+                    if (!returnObj[month]) {
+                        returnObj[month] = [];    
+                    }
+                    returnObj[month][i] = {
+                        name : tag,
+                        value : temp[tag]
+                    }
+                }
+                returnObj[month + 'max'] = Math.floor(max / 1) * 1;
+                returnObj[month + 'sum'] = sum;
+            }
+            totalMax = Math.ceil(totalMax / 10) * 10;
+            return returnObj;
+        }
+
+
+        var series = [];
+        for (var cat in _json._catArr) {
+            cat = _json._catArr[cat];
+            dataMap["dataFront" + cat] = dataFormatter(_json[cat]);
+            series.push({name:cat, type:"bar"});
+        }
+        series.push({
+            name: '文章数占比',
+            type: 'pie',
+            center: ['75%', '30%'],
+            radius: '25%'
+        });
+
+        var options = [];
+        for (var month in _json._monthArr) {
+            month = _json._monthArr[month];
+            var tempSeries1 = [];
+            var tempSeries2 = [];
+            for (var cat in _json._catArr) {
+                cat = _json._catArr[cat];
+                tempSeries1.push({data: dataMap["dataFront" + cat][month]});
+                tempSeries2.push({name: cat, value: dataMap["dataFront" + cat][month + "sum"]});
+            }
+
+            tempSeries1.push({data: tempSeries2});
+
+            options.push({
+                title: {text: month + '发表文章个数'},
+                series: tempSeries1
+            });
+        }
+
+
+        var xAxisData = [];
+        var l = Math.ceil(_json._tagArr.length / 10);
+        for (var i = 0; i < _json._tagArr.length; i++) {
+            var line = '';
+            for (var j = 0; j < (i % l); j++) {
+               line += '\n'; 
+            }
+            xAxisData.push(line + _json._tagArr[i]);
+        }
+
+
+        var option = {
+            baseOption: {
+                timeline: {
+                    // y: 0,
+                    axisType: 'category',
+                    // realtime: false,
+                    // loop: false,
+                    autoPlay: true,
+                    // currentIndex: 2,
+                    playInterval: 1000,
+                    // controlStyle: {
+                    //     position: 'left'
+                    // },
+                    data: _json._monthArr,
+                    label: {
+                        formatter : function(s) {
+                            return s;
+                        }
+                    }
+                },
+                title: {
+                    subtext: '数据来自博客文章统计'
+                },
+                tooltip: {},
+                legend: {
+                    x: 'right',
+                    data: _json._catArr,
+                    selected: {}
+                },
+                calculable : true,
+                grid: {
+                    top: 80,
+                    bottom: 100
+                },
+                xAxis: [
+                    {
+                        'type':'category',
+                        'axisLabel':{'interval':0},
+                        'data':xAxisData,
+                        splitLine: {show: false}
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '文章数',
+                        // max: 53500
+                        max: totalMax
+                    }
+                ],
+                series: series
+            },
+            options: options
+        };
+
+        //alert(JSON.stringify(option));  
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+    })()
+</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-29T01:41:46.000Z"><a href="/2016/07/29/IDEA使用Docker配置项目远程部署/">2016-07-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/29/IDEA使用Docker配置项目远程部署/">IDEA使用Docker配置项目远程部署</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ol>
+<li><p>服务器安装Docker，添加配置并重启</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/docker &#10;&#10;DOCKER_OPTS=&#34;-H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375&#34;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加Tomcat</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run tomcat</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>IDEA安装Docker插件,需重启后生效</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/07/29/IDEA使用Docker配置项目远程部署/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-22T21:57:26.000Z"><a href="/2016/07/22/查看mysql版本号/">2016-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/22/查看mysql版本号/">查看mysql版本号</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> <span class="keyword">version</span>();</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-22T21:31:28.000Z"><a href="/2016/07/22/Ubuntu-LAMP环境搭建/">2016-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/22/Ubuntu-LAMP环境搭建/">Ubuntu LAMP环境搭建</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ol>
+<li><p>更新源</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Apache2</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装PHP</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php5 -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装mysql</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server&#10;sudo apt-get install mysql-client</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问<a href="http://ip:80，修改权限/var/www" target="_blank" rel="external">http://ip:80，修改权限/var/www</a>                          </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /var/www</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-21T18:58:01.000Z"><a href="/2016/07/21/Drools之Workbench-Data存储位置/">2016-07-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/21/Drools之Workbench-Data存储位置/">Drools之Workbench Data存储位置</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>默认存储位置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$WORKING_DIRECTORY</span>/.niogit</span><br></pre></td></tr></table></figure></p>
+<p>可以被<a href="http://docs.jboss.org/drools/release/6.4.0.Final/drools-docs/html_single/index.html#wb.workbenchData" target="_blank" rel="external">指定位置</a><br><img src="http://zaozaool.github.io/pic/drools-workbeach-data.png" alt="Drools Workbench Data"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-13T08:51:26.000Z"><a href="/2016/07/13/tomcat启动不报错但是服务也没有启动成功/">2016-07-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/13/tomcat启动不报错但是服务也没有启动成功/">tomcat启动不报错但是服务也没有启动成功</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前遇到了一次tomcat启动时没有报任何错误，但是服务也没有启动成功，访问不了，后来同事帮忙在网上找到这样一篇文章，这里记录下<br><a href="http://blog.trifork.com/2011/03/18/debugging-the-dreaded-severe-error-listenerstart-and-severe-error-filterstart-tomcat-error-messages/" target="_blank" rel="external">DEBUGGING THE DREADED “SEVERE: ERROR LISTENERSTART” AND “SEVERE: ERROR FILTERSTART” TOMCAT ERROR MESSAGES</a></p>
+<p>具体操作：</p>
+<ol>
+<li><p>中web application下的WEB-INF/classes路径中创建logging.properties文件，其内容为：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.apache.catalina.core.ContainerBase.[Catalina].level = INFO //INFO&#32423;&#21035;&#21487;&#20197;&#26356;&#25913;&#10;org.apache.catalina.core.ContainerBase.[Catalina].handlers = java.util.logging.ConsoleHandler</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务，这个时候错误就会打印到控制台（catalina.out）</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-12T11:08:11.000Z"><a href="/2016/07/12/Jmesa使用总结-自定义Toolbar/">2016-07-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/12/Jmesa使用总结-自定义Toolbar/">Jmesa使用总结-自定义Toolbar</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="web-xml引入jmesa">web.xml引入jmesa</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">context-param</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">param-name</span>&gt;</span>jmesaMessagesLocation<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">param-value</span>&gt;</span>messages<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">context-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context-param</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">param-name</span>&gt;</span>jmesaPreferencesLocation<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">param-value</span>&gt;</span>jmesa.properties<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">context-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/07/12/Jmesa使用总结-自定义Toolbar/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-07T20:05:37.000Z"><a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/">2016-07-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/">Maven多模块中关于final static常量的一个坑</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="【背景】">【背景】</h1><p>多个独立的web项目合并到同一个Maven多模块项目中，目的是抽取公共模块，减少维护成本。<br>各个web项目的客户编码有不同的前缀，所以中各个web项目中都定义了一个常量，但是各个站点的值是不同的，中合并到一个Maven多模块项目后，抽取公共部分时由于中公共部分代码中需要用到这个常量，所以就随便将其中一个项目的该常量拿到了公共模块中，而各个站点的该常量保留，可是项目真正启动后，当使用该常量时发现其值一直是公共模块定义的，导致各个站点的客户编码使用了同样的前缀，从而出现了问题。</p>
+<h1 id="【结论】">【结论】</h1><p>如果公共模块中一个常量是各个站点都需要使用的，但是中各个单点的值又不一致，那么千万不要将该常量定义成final的。</p>
+<h1 id="【解决方法】">【解决方法】</h1><ul>
+<li>去除final定义即可</li>
+<li>将该常量定义到各个项目的配置文件中</li>
+</ul>
+<h1 id="【举例】">【举例】</h1>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-01T11:29:13.000Z"><a href="/2016/07/01/Mysql递归查询/">2016-07-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/01/Mysql递归查询/">Mysql递归查询</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--&#21019;&#24314;&#34920;&#10; &#10;DROP TABLE IF EXISTS `t_areainfo`;&#10;CREATE TABLE `t_areainfo` (&#10; `id` int(11) NOT &#39;0&#39; AUTO_INCREMENT,&#10; `level` int(11) DEFAULT &#39;0&#39;,&#10; `name` varchar(255) DEFAULT &#39;0&#39;,&#10; `parentId` int(11) DEFAULT &#39;0&#39;,&#10; `status` int(11) DEFAULT &#39;0&#39;,&#10; PRIMARY KEY (`id`)&#10;) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/07/01/Mysql递归查询/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-06-28T06:40:21.000Z"><a href="/2016/06/28/Node-js常用模块和工具/">2016-06-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/06/28/Node-js常用模块和工具/">Node.js常用模块和工具</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>工具：<br>nvm和n<br>cloud9</p>
+<p>全局模块：<br>express<br>koa<br>meteor<br>hexo：静态博客框架，支持Markdown</p>
+<p>项目模块：<br>Pomelo：网易开源基于 Node.js 的游戏服务端框架<br>bluebird/q/then/when/async/eventproxy：异步库, promise<br>coffee-script<br>colors：unix终端下显示颜色的库，利于调试和一些特殊场景<br>mkdirp：一次性建立目标文件夹，而不是mkdir…cd…mkdir…cd…mkdir这样的模式</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+  
+    <a href="/page/2/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zaozaool.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/其他/">其他</a><small>10</small></li>
+  
+    <li><a href="/categories/前端/">前端</a><small>7</small></li>
+  
+    <li><a href="/categories/后端/">后端</a><small>36</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/ABAP/">ABAP</a><small>5</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
+  
+    <li><a href="/tags/Drools/">Drools</a><small>7</small></li>
+  
+    <li><a href="/tags/ERP/">ERP</a><small>1</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
+  
+    <li><a href="/tags/Echarts/">Echarts</a><small>1</small></li>
+  
+    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+  
+    <li><a href="/tags/Grails/">Grails</a><small>1</small></li>
+  
+    <li><a href="/tags/Groovy/">Groovy</a><small>1</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>12</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
+  
+    <li><a href="/tags/Jmesa/">Jmesa</a><small>1</small></li>
+  
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>3</small></li>
+  
+    <li><a href="/tags/Maven/">Maven</a><small>3</small></li>
+  
+    <li><a href="/tags/Node-js/">Node.js</a><small>12</small></li>
+  
+    <li><a href="/tags/SAP/">SAP</a><small>6</small></li>
+  
+    <li><a href="/tags/SCM/">SCM</a><small>1</small></li>
+  
+    <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
+  
+    <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
+  
+    <li><a href="/tags/Tomcat/">Tomcat</a><small>1</small></li>
+  
+    <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>2</small></li>
+  
+    <li><a href="/tags/npm/">npm</a><small>1</small></li>
+  
+    <li><a href="/tags/可视化/">可视化</a><small>3</small></li>
+  
+    <li><a href="/tags/备忘/">备忘</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>1</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>0</small></li>
+  
+    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+  
+    <li><a href="/tags/项目/">项目</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 zaozaool. Powered by Hexo.js
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
