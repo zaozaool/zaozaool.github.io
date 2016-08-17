@@ -55,6 +55,42 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-09-21T09:02:06.000Z"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/">2015-09-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/">JavaScript学习笔记之 面向对象编程-继承</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="I、构造函数的继承">I、构造函数的继承</h1><p>动物与猫的继承如何实现呢？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.species = <span class="string">"动物"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"Eat anything."</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-09-21T08:17:49.000Z"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-封装/">2015-09-21</a></time>
       
       
@@ -421,44 +457,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-04T05:14:25.000Z"><a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">2015-08-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">深入浅出Node.js - 前后端共用模块(2.7)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.AMD规范：<code>define(id?, dependencies?, factory);</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'dep1'</span>, <span class="string">'dep2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">dep1, dep2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>2.CMD规范：<code>define(factory)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/08/04/深入浅出Node-js-前后端共用模块/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -487,7 +485,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>7</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>36</small></li>
+    <li><a href="/categories/后端/">后端</a><small>37</small></li>
   
   </ul>
 </div>
@@ -500,7 +498,7 @@
   
     <li><a href="/tags/ABAP/">ABAP</a><small>5</small></li>
   
-    <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
+    <li><a href="/tags/Docker/">Docker</a><small>2</small></li>
   
     <li><a href="/tags/Drools/">Drools</a><small>7</small></li>
   
@@ -524,7 +522,7 @@
   
     <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>3</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>4</small></li>
   
     <li><a href="/tags/Maven/">Maven</a><small>3</small></li>
   

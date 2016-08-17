@@ -55,6 +55,44 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-08-04T05:14:25.000Z"><a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">2015-08-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">深入浅出Node.js - 前后端共用模块(2.7)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.AMD规范：<code>define(id?, dependencies?, factory);</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'dep1'</span>, <span class="string">'dep2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">dep1, dep2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>2.CMD规范：<code>define(factory)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/08/04/深入浅出Node-js-前后端共用模块/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-31T05:39:40.000Z"><a href="/2015/07/31/module-exports和exports的区别/">2015-07-31</a></time>
       
       
@@ -323,7 +361,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>7</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>36</small></li>
+    <li><a href="/categories/后端/">后端</a><small>37</small></li>
   
   </ul>
 </div>
@@ -336,7 +374,7 @@
   
     <li><a href="/tags/ABAP/">ABAP</a><small>5</small></li>
   
-    <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
+    <li><a href="/tags/Docker/">Docker</a><small>2</small></li>
   
     <li><a href="/tags/Drools/">Drools</a><small>7</small></li>
   
@@ -360,7 +398,7 @@
   
     <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>3</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>4</small></li>
   
     <li><a href="/tags/Maven/">Maven</a><small>3</small></li>
   
