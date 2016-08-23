@@ -51,6 +51,47 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-08-18T14:13:38.000Z"><a href="/2015/08/18/深入浅出Node-js-异步编程/">2015-08-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/18/深入浅出Node-js-异步编程/">深入浅出Node.js - 异步编程(4.1-)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.函数式编程</p>
+<ul>
+<li>高阶函数：将函数作为参数或返回值的函数</li>
+<li>偏函数：参数和变量已经预置的函数的函数，如：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isType = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line">        <span class="keyword">return</span> toString.call(obj) == <span class="string">'[object'</span> + type + <span class="string">']'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建isString()、isFunction()</span></span><br><span class="line"><span class="keyword">var</span> isString = isType(<span class="string">'String'</span>);</span><br><span class="line"><span class="keyword">var</span> isFunction = isType(<span class="string">'Function'</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/08/18/深入浅出Node-js-异步编程/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-08-11T13:21:28.000Z"><a href="/2015/08/11/深入浅出Node-js-异步I-O/">2015-08-11</a></time>
       
       
@@ -430,43 +471,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T07:02:55.000Z"><a href="/2015/07/17/常用工具/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/常用工具/">常用工具</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><a href="http://zaozaool.github.io/js-hex-conversion.html">JavaScript各进制转换</a><br><a href="http://kangax.github.io/compat-table/es6/">ECMAScript部署进度检测工具</a></p>
-<h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG<br>InletexEMC<br>TeamViewer<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/17/常用工具/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -494,7 +498,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>7</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>37</small></li>
+    <li><a href="/categories/后端/">后端</a><small>38</small></li>
   
   </ul>
 </div>
@@ -523,7 +527,7 @@
   
     <li><a href="/tags/Groovy/">Groovy</a><small>1</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>12</small></li>
+    <li><a href="/tags/Java/">Java</a><small>13</small></li>
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
   
@@ -533,7 +537,7 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>4</small></li>
   
-    <li><a href="/tags/Maven/">Maven</a><small>3</small></li>
+    <li><a href="/tags/Maven/">Maven</a><small>4</small></li>
   
     <li><a href="/tags/Node-js/">Node.js</a><small>12</small></li>
   
