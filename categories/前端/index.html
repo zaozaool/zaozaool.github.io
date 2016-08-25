@@ -331,6 +331,52 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-08-25T06:03:26.000Z"><a href="/2016/08/25/jQuery中的循环技巧/">2016-08-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/08/25/jQuery中的循环技巧/">jQuery中的循环技巧</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li><p>简单的for-in（事件）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( type <span class="keyword">in</span> events ) &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>缓存length属性，避免每次都去查找length属性，稍微提升遍历速度。<br>  但是如果遍历HTMLCollection时，性能提升非常明显，因为每次访问HTMLCollection的属性，HTMLCollection都会内部匹配一次所有的节点  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> j = <span class="number">0</span>, l = handlers.length; j &lt; l; j++ ) &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不比较下标，直接判断元素是否为true（强制类型转换）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elem;</span><br><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; elems[i]; i++ ) &#123;</span><br><span class="line">	elem = elems[i];</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/08/25/jQuery中的循环技巧/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-08-25T05:35:39.000Z"><a href="/2016/08/25/JQuery源码分析笔记/">2016-08-25</a></time>
       
       
@@ -675,47 +721,11 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-20T05:03:26.000Z"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">2015-07-20</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.我们将 <code>&lt;script&gt;</code> 元素放在 HTML 文件底部的原因是，浏览器解析 HTML 似乎按照代码出现的顺序来的。如果 JavaScript被首先读取，它也应该影响下面的 HTML，但有时会出现问题，因为 JavaScript 会在 HTML 之前被加载，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。</p>
-<p>2.JS中的每一行都应该以一个分号结尾，以表明这一行的结束。如果你不这样做，可能会遇到意想不到的结果。</p>
-<p>3.变量提升只对var命令声明的变量有效，如果一个变量不是用var命令声明的，就不会发生变量提升。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
+  
+    <a href="/categories/前端/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -735,7 +745,7 @@
   
     <li><a href="/categories/其他/">其他</a><small>10</small></li>
   
-    <li><a href="/categories/前端/">前端</a><small>10</small></li>
+    <li><a href="/categories/前端/">前端</a><small>11</small></li>
   
     <li><a href="/categories/后端/">后端</a><small>38</small></li>
   
@@ -772,7 +782,7 @@
   
     <li><a href="/tags/Java/">Java</a><small>13</small></li>
   
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>7</small></li>
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>8</small></li>
   
     <li><a href="/tags/Jmesa/">Jmesa</a><small>1</small></li>
   
@@ -796,7 +806,7 @@
   
     <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
   
-    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+    <li><a href="/tags/jQuery/">jQuery</a><small>2</small></li>
   
     <li><a href="/tags/mysql/">mysql</a><small>2</small></li>
   

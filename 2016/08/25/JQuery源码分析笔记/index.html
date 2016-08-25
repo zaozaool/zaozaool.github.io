@@ -152,30 +152,7 @@ undefined能够被重写，赋予新的值。12undefined = &quot;now it&#39;s de
 </tbody>
 </table>
 <ul>
-<li><p>jQuery.extend = jQuery.fn.extend<br>合并两个或更多对象的属性到第一个对象中。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.extend([deep], target, object1, [objectN])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>jQuery中的循环技巧</p>
-<ul>
-<li><p>简单的for-in（事件）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( type <span class="keyword">in</span> events ) &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>缓存length属性，避免每次都去查找length属性，稍微提升遍历速度。<br>但是如果遍历HTMLCollection时，性能提升非常明显，因为每次访问HTMLCollection的属性，HTMLCollection都会内部匹配一次所有的节点  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> j = <span class="number">0</span>, l = handlers.length; j &lt; l; j++ ) &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不比较下标，直接判断元素是否为true（强制类型转换）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elem;</span><br><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; elems[i]; i++ ) &#123;</span><br><span class="line">	elem = elems[i];</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>遍历动态数组（事件），不能缓存length属性，j++之前先执行j—，保证不会因为数组下标的错误导致某些数组元素遍历不到</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( j = <span class="number">0</span>; j &lt; eventType.length; j++ ) &#123;</span><br><span class="line">	eventType.splice( j--, <span class="number">1</span> );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">1</span>; i &lt; results.length; i++ ) &#123;</span><br><span class="line">	<span class="keyword">if</span> ( results[i] === results[ i - <span class="number">1</span> ] ) &#123;</span><br><span class="line">		results.splice( i--, <span class="number">1</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>迭代过程中尽可能减少遍历次数（事件），如果你能知道从哪里开始遍历的话，这里是pos</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( j = pos || <span class="number">0</span>; j &lt; eventType.length; j++ ) &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>倒序遍历（事件），减少了几个字符：循环条件判断，合并i自减和i取值，倒序遍历会有浏览器优化，稍微提升遍历速度</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="keyword">this</span>.props.length, prop; i; ) &#123;</span><br><span class="line">	prop = <span class="keyword">this</span>.props[ --i ];</span><br><span class="line">	event[ prop ] = originalEvent[ prop ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<li>jQuery.extend = jQuery.fn.extend<br>合并两个或更多对象的属性到第一个对象中。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.extend([deep], target, object1, [objectN])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><a href="http://www.cnblogs.com/nuysoft/archive/2011/11/14/2248023.html" target="_blank" rel="external">源码分析博客</a></p>
@@ -271,7 +248,7 @@ undefined能够被重写，赋予新的值。12undefined = &quot;now it&#39;s de
   
     <li><a href="/categories/其他/">其他</a><small>10</small></li>
   
-    <li><a href="/categories/前端/">前端</a><small>10</small></li>
+    <li><a href="/categories/前端/">前端</a><small>11</small></li>
   
     <li><a href="/categories/后端/">后端</a><small>38</small></li>
   
@@ -308,7 +285,7 @@ undefined能够被重写，赋予新的值。12undefined = &quot;now it&#39;s de
   
     <li><a href="/tags/Java/">Java</a><small>13</small></li>
   
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>7</small></li>
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>8</small></li>
   
     <li><a href="/tags/Jmesa/">Jmesa</a><small>1</small></li>
   
@@ -332,7 +309,7 @@ undefined能够被重写，赋予新的值。12undefined = &quot;now it&#39;s de
   
     <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
   
-    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+    <li><a href="/tags/jQuery/">jQuery</a><small>2</small></li>
   
     <li><a href="/tags/mysql/">mysql</a><small>2</small></li>
   

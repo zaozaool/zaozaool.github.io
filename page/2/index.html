@@ -51,6 +51,55 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-07-22T21:31:28.000Z"><a href="/2016/07/22/Ubuntu-LAMP环境搭建/">2016-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/22/Ubuntu-LAMP环境搭建/">Ubuntu LAMP环境搭建</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ol>
+<li><p>更新源</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Apache2</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装PHP</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php5 -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装mysql</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server&#10;sudo apt-get install mysql-client</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问<a href="http://ip:80，修改权限/var/www" target="_blank" rel="external">http://ip:80，修改权限/var/www</a>                          </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /var/www</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-07-21T18:58:01.000Z"><a href="/2016/07/21/Drools之Workbench-Data存储位置/">2016-07-21</a></time>
       
       
@@ -375,42 +424,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-06T07:51:11.000Z"><a href="/2016/06/06/使用Maven模板创建项目/">2016-06-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/06/使用Maven模板创建项目/">使用Maven模板创建项目</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="列出Maven模板列表（1000+），并选择模板创建项目">列出Maven模板列表（1000+），并选择模板创建项目</h2><p>mvn archetype:generate</p>
-<h2 id="导出Maven模板列表到txt">导出Maven模板列表到txt</h2><p>mvn archetype:generate &gt; templates.txt</p>
-<h2 id="导入Eclipse">导入Eclipse</h2><p>mvn eclipse:eclipse</p>
-<h2 id="根据常用模板创建项目">根据常用模板创建项目</h2><h3 id="maven-archetype-quickstart_(Java_Project)">maven-archetype-quickstart (Java Project)</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.yiibai.core -DartifactId=ProjectName -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false</span><br></pre></td></tr></table></figure>
-<h3 id="maven-archetype-webapp_(Java_Web_Project)">maven-archetype-webapp (Java Web Project)</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.yiibai.web -DartifactId=ProjectName -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -436,7 +449,7 @@
   
     <li><a href="/categories/其他/">其他</a><small>10</small></li>
   
-    <li><a href="/categories/前端/">前端</a><small>10</small></li>
+    <li><a href="/categories/前端/">前端</a><small>11</small></li>
   
     <li><a href="/categories/后端/">后端</a><small>38</small></li>
   
@@ -473,7 +486,7 @@
   
     <li><a href="/tags/Java/">Java</a><small>13</small></li>
   
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>7</small></li>
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>8</small></li>
   
     <li><a href="/tags/Jmesa/">Jmesa</a><small>1</small></li>
   
@@ -497,7 +510,7 @@
   
     <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
   
-    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+    <li><a href="/tags/jQuery/">jQuery</a><small>2</small></li>
   
     <li><a href="/tags/mysql/">mysql</a><small>2</small></li>
   
