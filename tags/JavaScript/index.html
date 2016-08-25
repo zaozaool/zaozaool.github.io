@@ -55,6 +55,49 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-08-25T05:35:39.000Z"><a href="/2016/08/25/JQuery源码分析笔记/">2016-08-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/08/25/JQuery源码分析笔记/">jQuery源码分析笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>js自调用匿名函数的两种写法：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, undefined</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;)(<span class="built_in">window</span>);</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, undefined</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;(<span class="built_in">window</span>));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>undefined能够被重写，赋予新的值。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> = <span class="string">"now it's defined"</span>;</span><br><span class="line">alert( <span class="literal">undefined</span> );</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/08/25/JQuery源码分析笔记/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-10-01T07:45:51.000Z"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">2015-10-01</a></time>
       
       
@@ -291,7 +334,7 @@
   
     <li><a href="/categories/其他/">其他</a><small>10</small></li>
   
-    <li><a href="/categories/前端/">前端</a><small>9</small></li>
+    <li><a href="/categories/前端/">前端</a><small>10</small></li>
   
     <li><a href="/categories/后端/">后端</a><small>38</small></li>
   
@@ -328,7 +371,7 @@
   
     <li><a href="/tags/Java/">Java</a><small>13</small></li>
   
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>7</small></li>
   
     <li><a href="/tags/Jmesa/">Jmesa</a><small>1</small></li>
   
@@ -351,6 +394,8 @@
     <li><a href="/tags/Tomcat/">Tomcat</a><small>1</small></li>
   
     <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
   
     <li><a href="/tags/mysql/">mysql</a><small>2</small></li>
   
