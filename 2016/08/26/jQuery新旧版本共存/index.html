@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档：2016/5 | ζζ</title>
+  <title>jQuery新旧版本共存 | ζζ</title>
   <meta name="author" content="zaozaool. Powered by Hexo.js">
+  
+  <meta name="description" content="12345678910&amp;lt;script src=&quot;jquery-1.5.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;jquery-1.11.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;  // 现在window.$和window.jQu">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="jQuery新旧版本共存"/>
   <meta property="og:site_name" content="ζζ"/>
 
   
@@ -44,34 +46,58 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2016/5</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-05-03T11:03:29.000Z"><a href="/2016/05/03/Groovy-Grails入门/">2016-05-03</a></time>
+        <time datetime="2016-08-26T09:16:35.000Z"><a href="/2016/08/26/jQuery新旧版本共存/">2016-08-26</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/05/03/Groovy-Grails入门/">Groovy&amp;Grails入门</a></h1>
+    <h1 class="title">jQuery新旧版本共存</h1>
   
 
     </header>
     <div class="entry">
       
-        <h1 id="Studying">Studying</h1>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"jquery-1.5.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery-1.11.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="openscad"></span><br><span class="line">  <span class="comment">// 现在window.$和window.jQuery是1.11版本:</span></span><br><span class="line">  console.<span class="built_in">log</span><span class="params">($<span class="params">()</span>.jquery)</span>; <span class="comment">// =&gt; '1.11.0'</span></span><br><span class="line">  var $jq = jQuery.noConflict<span class="params">(<span class="literal">true</span>)</span>;</span><br><span class="line">  <span class="comment">// 现在window.$和window.jQuery被恢复成1.5版本:</span></span><br><span class="line">  console.<span class="built_in">log</span><span class="params">($<span class="params">()</span>.jquery)</span>; <span class="comment">// =&gt; '1.5.0'</span></span><br><span class="line">  <span class="comment">// 可以通过$jq访问1.11版本的jQuery了</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/前端/">前端</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/jQuery/">jQuery</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -79,14 +105,40 @@
 </article>
 
 
+<section id="comment">
+  <h1 class="title">唠叨几句吧</h1>
 
   
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaozaool';
 
-  <nav id="pagination">
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaozaool';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+      
   
-  
-  <div class="clearfix"></div>
-</nav>
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
