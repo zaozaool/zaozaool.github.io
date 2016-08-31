@@ -327,6 +327,51 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-08-31T01:24:28.000Z"><a href="/2016/08/31/结合cloud9-IDE使用本地版gitbook/">2016-08-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/08/31/结合cloud9-IDE使用本地版gitbook/">结合cloud9 IDE使用本地版gitbook</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ol>
+<li><p>安装node(建议使用nvm安装，方便版本管理和切换)</p>
+</li>
+<li><p>安装<a href="https://github.com/c9/core">Cloud9 IDE</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#31532;&#19968;&#27425;&#23433;&#35013;&#10;git clone git://github.com/c9/core.git c9sdk&#10;cd c9sdk&#10;scripts/install-sdk.sh&#10;&#10;#&#26356;&#26032;&#10;git pull origin master&#10;scripts/install-sdk.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装gitbook</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g gitbook-cli</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/08/31/结合cloud9-IDE使用本地版gitbook/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-08-26T09:16:35.000Z"><a href="/2016/08/26/jQuery新旧版本共存/">2016-08-26</a></time>
       
       
@@ -679,49 +724,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-29T01:41:46.000Z"><a href="/2016/07/29/IDEA使用Docker配置项目远程部署/">2016-07-29</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/29/IDEA使用Docker配置项目远程部署/">IDEA使用Docker配置项目远程部署</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ol>
-<li><p>服务器安装Docker，添加配置并重启</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/docker &#10;&#10;DOCKER_OPTS=&#34;-H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375&#34;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加Tomcat</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run tomcat</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IDEA安装Docker插件,需重启后生效</p>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/07/29/IDEA使用Docker配置项目远程部署/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -743,7 +745,7 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/其他/">其他</a><small>10</small></li>
+    <li><a href="/categories/其他/">其他</a><small>11</small></li>
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
@@ -774,7 +776,7 @@
   
     <li><a href="/tags/Echarts/">Echarts</a><small>1</small></li>
   
-    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+    <li><a href="/tags/Git/">Git</a><small>3</small></li>
   
     <li><a href="/tags/Grails/">Grails</a><small>1</small></li>
   
