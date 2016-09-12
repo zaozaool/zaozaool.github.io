@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>归档：2016/9 | ζζ</title>
+  <meta name="author" content="zaozaool. Powered by Hexo.js">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="ζζ"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="ζζ" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">ζζ</a></h1>
+  <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2016/9</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-09-12T03:01:59.000Z"><a href="/2016/09/12/获取当前Java进程的活动线程数/">2016-09-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/12/获取当前Java进程的活动线程数/">获取当前Java进程的活动线程数</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获取当前Java进程的活动线程数</span><br><span class="line"> * <span class="doctag">@return</span></span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> Map&lt;String, Object&gt; getThreadsTotal() &#123;</span><br><span class="line">    Map&lt;String, Object&gt; threadDataMap = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">    Integer currentThreadCount = <span class="number">0</span>;</span><br><span class="line">    Integer currentThreadsBusy = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    MBeanServer mbeanServer = ManagementFactory.getPlatformMBeanServer();</span><br><span class="line">    List&lt;ObjectName&gt; threadPools = <span class="keyword">new</span> ArrayList&lt;ObjectName&gt;();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        threadPools.addAll(mbeanServer.queryNames(<span class="keyword">new</span> ObjectName(<span class="string">"*:type=ThreadPool,*"</span>), <span class="keyword">null</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">final</span> ObjectName threadPool : threadPools) &#123;</span><br><span class="line">            <span class="comment">//获取所有线程池下的线程总数</span></span><br><span class="line">            currentThreadCount += (Integer) mbeanServer.getAttribute(threadPool, <span class="string">"currentThreadCount"</span>);</span><br><span class="line">            currentThreadsBusy += (Integer) mbeanServer.getAttribute(threadPool, <span class="string">"currentThreadsBusy"</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (MalformedObjectNameException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Get threads information error."</span>, e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ReflectionException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Reflecttion error"</span>, e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InstanceNotFoundException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Instance not found error."</span>, e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (MBeanException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Mean error"</span>, e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (AttributeNotFoundException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Could not get attribute"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    threadDataMap.put(<span class="string">"currentThreadCount"</span>, currentThreadCount);</span><br><span class="line">    threadDataMap.put(<span class="string">"currentThreadsBusy"</span>, currentThreadsBusy);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> threadDataMap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/09/12/获取当前Java进程的活动线程数/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-09-12T02:58:19.000Z"><a href="/2016/09/12/获得Tomcat的内存信息/">2016-09-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/12/获得Tomcat的内存信息/">获得Tomcat的内存信息</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获得Tomcat的内存信息</span><br><span class="line"> * <span class="doctag">@return</span></span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Object&gt; getMemoryInfo() &#123;</span><br><span class="line">    Map&lt;String, Object&gt; memDataMap = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> MB = <span class="number">1024.0</span> * <span class="number">1024.0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//当前JVM的最大可用内存</span></span><br><span class="line">    <span class="keyword">double</span> maxMemory = (Runtime.getRuntime().maxMemory()) / MB;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//当前JVM占用的内存总数</span></span><br><span class="line">    <span class="keyword">double</span> totalMemory = (Runtime.getRuntime().totalMemory()) / MB;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//因为JVM只有在需要内存时才占用物理内存使用，所以freeMemory()的值一般情况下都很小</span></span><br><span class="line">    <span class="keyword">double</span> freeMemory = (Runtime.getRuntime().freeMemory()) / MB;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//JVM实际可用内存</span></span><br><span class="line">    <span class="keyword">double</span> totalUsableMemory = maxMemory - totalMemory + freeMemory;</span><br><span class="line"></span><br><span class="line">    memDataMap.put(<span class="string">"totalUsableMemory"</span>, totalUsableMemory);</span><br><span class="line">    memDataMap.put(<span class="string">"totalMemory"</span>, totalMemory);</span><br><span class="line">    memDataMap.put(<span class="string">"maxMemory"</span>, maxMemory);</span><br><span class="line"></span><br><span class="line">    NumberFormat nt = NumberFormat.getPercentInstance();</span><br><span class="line">    nt.setMinimumFractionDigits(<span class="number">2</span>);</span><br><span class="line">    memDataMap.put(<span class="string">"memUsage"</span>, nt.format(totalMemory / maxMemory));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> memDataMap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zaozaool.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/其他/">其他</a><small>11</small></li>
+  
+    <li><a href="/categories/前端/">前端</a><small>12</small></li>
+  
+    <li><a href="/categories/后端/">后端</a><small>40</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/ABAP/">ABAP</a><small>5</small></li>
+  
+    <li><a href="/tags/Ant/">Ant</a><small>0</small></li>
+  
+    <li><a href="/tags/Chrome/">Chrome</a><small>3</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>2</small></li>
+  
+    <li><a href="/tags/Drools/">Drools</a><small>7</small></li>
+  
+    <li><a href="/tags/ERP/">ERP</a><small>1</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
+  
+    <li><a href="/tags/Echarts/">Echarts</a><small>1</small></li>
+  
+    <li><a href="/tags/Git/">Git</a><small>3</small></li>
+  
+    <li><a href="/tags/Grails/">Grails</a><small>1</small></li>
+  
+    <li><a href="/tags/Groovy/">Groovy</a><small>1</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>15</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
+  
+    <li><a href="/tags/Jmesa/">Jmesa</a><small>1</small></li>
+  
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>4</small></li>
+  
+    <li><a href="/tags/Maven/">Maven</a><small>3</small></li>
+  
+    <li><a href="/tags/Node-js/">Node.js</a><small>12</small></li>
+  
+    <li><a href="/tags/SAP/">SAP</a><small>6</small></li>
+  
+    <li><a href="/tags/SCM/">SCM</a><small>1</small></li>
+  
+    <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
+  
+    <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
+  
+    <li><a href="/tags/Tomcat/">Tomcat</a><small>2</small></li>
+  
+    <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>3</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>2</small></li>
+  
+    <li><a href="/tags/npm/">npm</a><small>1</small></li>
+  
+    <li><a href="/tags/可视化/">可视化</a><small>2</small></li>
+  
+    <li><a href="/tags/备忘/">备忘</a><small>5</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>1</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>0</small></li>
+  
+    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+  
+    <li><a href="/tags/项目/">项目</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 zaozaool. Powered by Hexo.js
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

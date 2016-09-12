@@ -331,6 +331,74 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-09-12T03:01:59.000Z"><a href="/2016/09/12/获取当前Java进程的活动线程数/">2016-09-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/12/获取当前Java进程的活动线程数/">获取当前Java进程的活动线程数</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获取当前Java进程的活动线程数</span><br><span class="line"> * <span class="doctag">@return</span></span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> Map&lt;String, Object&gt; getThreadsTotal() &#123;</span><br><span class="line">    Map&lt;String, Object&gt; threadDataMap = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">    Integer currentThreadCount = <span class="number">0</span>;</span><br><span class="line">    Integer currentThreadsBusy = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    MBeanServer mbeanServer = ManagementFactory.getPlatformMBeanServer();</span><br><span class="line">    List&lt;ObjectName&gt; threadPools = <span class="keyword">new</span> ArrayList&lt;ObjectName&gt;();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        threadPools.addAll(mbeanServer.queryNames(<span class="keyword">new</span> ObjectName(<span class="string">"*:type=ThreadPool,*"</span>), <span class="keyword">null</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">final</span> ObjectName threadPool : threadPools) &#123;</span><br><span class="line">            <span class="comment">//获取所有线程池下的线程总数</span></span><br><span class="line">            currentThreadCount += (Integer) mbeanServer.getAttribute(threadPool, <span class="string">"currentThreadCount"</span>);</span><br><span class="line">            currentThreadsBusy += (Integer) mbeanServer.getAttribute(threadPool, <span class="string">"currentThreadsBusy"</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (MalformedObjectNameException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Get threads information error."</span>, e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ReflectionException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Reflecttion error"</span>, e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InstanceNotFoundException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Instance not found error."</span>, e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (MBeanException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Mean error"</span>, e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (AttributeNotFoundException e) &#123;</span><br><span class="line">        logger.error(<span class="string">"Could not get attribute"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    threadDataMap.put(<span class="string">"currentThreadCount"</span>, currentThreadCount);</span><br><span class="line">    threadDataMap.put(<span class="string">"currentThreadsBusy"</span>, currentThreadsBusy);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> threadDataMap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/09/12/获取当前Java进程的活动线程数/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-09-12T02:58:19.000Z"><a href="/2016/09/12/获得Tomcat的内存信息/">2016-09-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/12/获得Tomcat的内存信息/">获得Tomcat的内存信息</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获得Tomcat的内存信息</span><br><span class="line"> * <span class="doctag">@return</span></span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Object&gt; getMemoryInfo() &#123;</span><br><span class="line">    Map&lt;String, Object&gt; memDataMap = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> MB = <span class="number">1024.0</span> * <span class="number">1024.0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//当前JVM的最大可用内存</span></span><br><span class="line">    <span class="keyword">double</span> maxMemory = (Runtime.getRuntime().maxMemory()) / MB;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//当前JVM占用的内存总数</span></span><br><span class="line">    <span class="keyword">double</span> totalMemory = (Runtime.getRuntime().totalMemory()) / MB;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//因为JVM只有在需要内存时才占用物理内存使用，所以freeMemory()的值一般情况下都很小</span></span><br><span class="line">    <span class="keyword">double</span> freeMemory = (Runtime.getRuntime().freeMemory()) / MB;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//JVM实际可用内存</span></span><br><span class="line">    <span class="keyword">double</span> totalUsableMemory = maxMemory - totalMemory + freeMemory;</span><br><span class="line"></span><br><span class="line">    memDataMap.put(<span class="string">"totalUsableMemory"</span>, totalUsableMemory);</span><br><span class="line">    memDataMap.put(<span class="string">"totalMemory"</span>, totalMemory);</span><br><span class="line">    memDataMap.put(<span class="string">"maxMemory"</span>, maxMemory);</span><br><span class="line"></span><br><span class="line">    NumberFormat nt = NumberFormat.getPercentInstance();</span><br><span class="line">    nt.setMinimumFractionDigits(<span class="number">2</span>);</span><br><span class="line">    memDataMap.put(<span class="string">"memUsage"</span>, nt.format(totalMemory / maxMemory));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> memDataMap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-08-31T01:24:28.000Z"><a href="/2016/08/31/结合cloud9-IDE使用本地版gitbook/">2016-08-31</a></time>
       
       
@@ -655,79 +723,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-08-23T10:10:29.000Z"><a href="/2016/08/23/Java常用工具/">2016-08-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/08/23/Java常用工具/">Java常用工具</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ul>
-<li>findbugs</li>
-<li>Checkstyle</li>
-<li>PMD</li>
-<li>JProfiler</li>
-<li>JMeter</li>
-<li>VisualVM</li>
-<li>Cobertura</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-08-04T08:16:43.000Z"><a href="/2016/08/04/Docker常用命令/">2016-08-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/08/04/Docker常用命令/">Docker常用命令</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps&#10;&#10;#&#36827;&#20837;docker shell&#10;docker exec -it container&#21517;&#31216;&#25110;&#32773;ID bash</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -754,7 +749,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>38</small></li>
+    <li><a href="/categories/后端/">后端</a><small>40</small></li>
   
   </ul>
 </div>
@@ -787,7 +782,7 @@
   
     <li><a href="/tags/Groovy/">Groovy</a><small>1</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>13</small></li>
+    <li><a href="/tags/Java/">Java</a><small>15</small></li>
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
   
@@ -809,7 +804,7 @@
   
     <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
   
-    <li><a href="/tags/Tomcat/">Tomcat</a><small>1</small></li>
+    <li><a href="/tags/Tomcat/">Tomcat</a><small>2</small></li>
   
     <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
   

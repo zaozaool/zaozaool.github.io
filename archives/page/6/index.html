@@ -55,6 +55,94 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-08-07T04:51:44.000Z"><a href="/2015/08/07/Linux常用命令/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Linux常用命令/">Linux常用命令</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.<code>uname -a</code>,可显示电脑以及操作系统的相关信息。</p>
+<p>2.<code>cat /proc/version</code>,说明正在运行的内核版本。</p>
+<p>3.<code>cat /etc/issue</code>, 显示的是发行版本信息</p>
+<p>4.<code>lsb_release -a</code>, (适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb)</p>
+<p>5.<code>uname -r</code>,输出版本号</p>
+<p>6.<code>ls -l |grep &quot;^-&quot;|wc -l</code>,统计某文件夹下文件的个数</p>
+<p>7.<code>ls -l |grep &quot;^ｄ&quot;|wc -l</code>,统计某文件夹下目录的个数</p>
+<p>8.<code>ls -lR|grep &quot;^-&quot;|wc -l</code>,统计文件夹下文件的个数，包括子文件夹里的</p>
+<ol>
+<li><p><code>sudo chown -R vagrant:vagrant ~/repo/</code>,改变拥有者和群组</p>
+</li>
+<li><p><code>cat scm_visit.log | grep -e &quot;E00&quot; &gt; /tmp/log.log</code>, 分析日志并导出</p>
+</li>
+<li><p>vim替换文本：<code>:%s/AA/BB/gc</code>，即将<code>AA</code>替换为<code>BB</code></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-06T00:55:07.000Z"><a href="/2015/08/06/Git代码托管平台汇总/">2015-08-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/06/Git代码托管平台汇总/">Git代码托管平台汇总</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong><em>1.<a href="https://github.com/">GitHub</a>：不介绍了</em></strong></p>
+<p><strong><em>2.<a href="https://about.gitlab.com/">GitLab</a>：支持无限的公有项目和私有项目</em></strong></p>
+<p><strong><em>3.<a href="https://bitbucket.org/">Bitbucket</a>：免费支持5个开发成员的团队创建无限私有代码托管库</em></strong></p>
+<p><strong><em>4.(国内)<a href="http://git.oschina.net/">开源中国代码托管</a>：一个账号最多可以创建1000个项目，包含公有和私有，同时具备团队协作开发平台，支持任务的创建、讨论、便签等</em></strong></p>
+<p><strong><em>5.(国内)<a href="https://coding.net/home.html">coding.net</a>：速度快，功能与开源中国相似，同样一个账号最多可以创建1000个项目，也支持任务的创建等，同时还有WebIDE</em></strong><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/08/06/Git代码托管平台汇总/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-08-04T05:14:25.000Z"><a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">2015-08-04</a></time>
       
       
@@ -377,75 +465,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T06:35:12.000Z"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">Node.js学习笔记之 常用模块</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.superagent：客户端请求代理模块，抓取页面用的（lession3）<br>2.cheerio：Node.js版的JQuery（lession3）<br>3.eventproxy：可以控制异步并发（lession4）<br>4.async：可以控制异步并发，并且可以自定义并发数（lession5）<br>5.should：断言库，用于后端测试，和mocha组合使用（lession6）<br>6.mocha：测试框架（lession6）
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/17/Node.js学习笔记之-常用模块/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">supervisor vs pm2 vs forever</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -474,7 +493,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>38</small></li>
+    <li><a href="/categories/后端/">后端</a><small>40</small></li>
   
   </ul>
 </div>
@@ -507,7 +526,7 @@
   
     <li><a href="/tags/Groovy/">Groovy</a><small>1</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>13</small></li>
+    <li><a href="/tags/Java/">Java</a><small>15</small></li>
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
   
@@ -529,7 +548,7 @@
   
     <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
   
-    <li><a href="/tags/Tomcat/">Tomcat</a><small>1</small></li>
+    <li><a href="/tags/Tomcat/">Tomcat</a><small>2</small></li>
   
     <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
   
