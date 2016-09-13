@@ -51,6 +51,48 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-08-11T13:21:28.000Z"><a href="/2015/08/11/深入浅出Node-js-异步I-O/">2015-08-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/11/深入浅出Node-js-异步I-O/">深入浅出Node.js - 异步I/O(3.2-3.4)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.异步I/O与非阻塞I/O</p>
+<ul>
+<li>异步与非阻塞都能达到并行I/O的目的</li>
+<li>从计算机内核I/O而言，异步/同步于阻塞/非阻塞不是一码事</li>
+<li>系统内核I/O只有两种方式：阻塞于非阻塞（阻塞I/O造成CPU等待浪费，非阻塞I/O让CPU处理状态判断，所以是对CPU的浪费）<ul>
+<li>在调用阻塞I/O时，应用程序需要等待I/O完成才返回结果，造成CPU等待I/O，不能充分利用CPU，所有内核提供非阻塞I/O</li>
+<li>在调用非阻塞I/O时会立即返回，CPU的时间片可以用来处理其他事务，但是由于返回的不是业务层期望的数据，而只是当前调用的状态，那么应用程序需要通过<code>轮询</code>获取数据
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/08/11/深入浅出Node-js-异步I-O/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-08-07T04:51:44.000Z"><a href="/2015/08/07/Linux常用命令/">2015-08-07</a></time>
       
       
@@ -425,42 +467,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T06:53:09.000Z"><a href="/2015/07/17/我的vagrant相关命令/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/我的vagrant相关命令/">我的vagrant相关命令</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="vagrant启动/停止">vagrant启动/停止</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init  # &#21021;&#22987;&#21270;&#10;vagrant up  # &#21551;&#21160;&#34394;&#25311;&#26426;&#10;vagrant halt  # &#20851;&#38381;&#34394;&#25311;&#26426;&#10;vagrant reload  # &#37325;&#21551;&#34394;&#25311;&#26426;&#10;vagrant ssh  # SSH &#33267;&#34394;&#25311;&#26426;&#10;vagrant status  # &#26597;&#30475;&#34394;&#25311;&#26426;&#36816;&#34892;&#29366;&#24577;&#10;vagrant destroy  # &#38144;&#27585;&#24403;&#21069;&#34394;&#25311;&#26426;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/17/我的vagrant相关命令/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -484,7 +490,7 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/其他/">其他</a><small>11</small></li>
+    <li><a href="/categories/其他/">其他</a><small>12</small></li>
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
@@ -555,7 +561,7 @@
   
     <li><a href="/tags/可视化/">可视化</a><small>2</small></li>
   
-    <li><a href="/tags/备忘/">备忘</a><small>5</small></li>
+    <li><a href="/tags/备忘/">备忘</a><small>6</small></li>
   
     <li><a href="/tags/工具/">工具</a><small>1</small></li>
   
