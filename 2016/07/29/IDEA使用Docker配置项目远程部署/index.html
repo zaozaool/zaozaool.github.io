@@ -77,16 +77,16 @@ IDEA安装Docker插件,需重启后生效">
 </li>
 <li><p>IDEA安装Docker插件,需重启后生效</p>
 <a id="more"></a>
-<p><img src="http://zaozaool.github.io/pic/IDEA-plugin-docker.png" alt="配置"></p>
+<p><img src="https://zaozaool.github.io/pic/IDEA-plugin-docker.png" alt="配置"></p>
 </li>
 <li><p>在项目目录下创建docker-dir目录，并创建Dockerfile文件，其内容为：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#build&#10;&#10;FROM tomcat&#10;&#10;RUN mkdir /root/.m2&#10;WORKDIR /root/.m2&#10;RUN wget  http://10.168.2.64/scripts/settings.xml&#10;&#10;WORKDIR /usr/sbin&#10;RUN wget http://10.168.2.64/soft/html2pdf&#10;RUN chmod 755 html2pdf&#10;&#10;RUN apt-get update&#10;RUN apt-get -y install ghostscript&#10;ENV CATALINA_OPTS  &#34;-agentlib:jdwp=transport=dt_socket,address=0.0.0.0:18787,suspend=n,server=y&#34;&#10;EXPOSE 18787&#10;&#10;RUN apt-get -y install ssh&#10;RUN sed -i  /Port/s/22/2022/ /etc/ssh/sshd_config&#10;RUN sed -i /PermitRootLogin/s/without-password/yes/ /etc/ssh/sshd_config&#10;EXPOSE 2022&#10;RUN sed -i /exit/d /etc/rc.local&#10;RUN echo &#34;root:root&#34; | chpasswd&#10;&#10;RUN sed -i /^PRGDIR/a&#39;service ssh restart&#39; /usr/local/tomcat/bin/catalina.sh&#10;&#10;ADD SCM-usorder.war /usr/local/tomcat/webapps/</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Settings &gt; Build,Execution,Deployment &gt; Clouds下增加docker，如图：<br><img src="http://zaozaool.github.io/pic/docker-2.209.png" alt="配置"></p>
+<li><p>Settings &gt; Build,Execution,Deployment &gt; Clouds下增加docker，如图：<br><img src="https://zaozaool.github.io/pic/docker-2.209.png" alt="配置"></p>
 </li>
-<li><p>Edit Configuration &gt; New Docker Deployment<br><img src="http://zaozaool.github.io/pic/docker-usorder-2.209.png" alt="配置"><br><img src="http://zaozaool.github.io/pic/docker-usorder-2.209_2.png" alt="配置"></p>
+<li><p>Edit Configuration &gt; New Docker Deployment<br><img src="https://zaozaool.github.io/pic/docker-usorder-2.209.png" alt="配置"><br><img src="https://zaozaool.github.io/pic/docker-usorder-2.209_2.png" alt="配置"></p>
 </li>
-<li><p>修改war的输出目录[ctrl+shift+alt+S]<br><img src="http://zaozaool.github.io/pic/SCM-usorder.war.png" alt="配置"></p>
+<li><p>修改war的输出目录[ctrl+shift+alt+S]<br><img src="https://zaozaool.github.io/pic/SCM-usorder.war.png" alt="配置"></p>
 </li>
 <li><p>官方教程<br><a href="https://www.jetbrains.com/help/idea/2016.2/docker.html" target="_blank" rel="external">官方教程</a></p>
 </li>
