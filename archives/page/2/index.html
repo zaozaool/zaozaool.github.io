@@ -55,6 +55,61 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-08-24T02:39:02.000Z"><a href="/2016/08/24/Chrome推荐插件/">2016-08-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/08/24/Chrome推荐插件/">Chrome推荐插件</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>vimium: 抛弃鼠标操作浏览器的最佳插件</li>
+<li>cVim: 比vimium更强大，功能更全面的vim插件</li>
+<li>crxMouse: 鼠标手势</li>
+<li>Ghostery: 了解谁在跟踪您的网页浏览操作</li>
+<li>IE Tab: 在标签页中以IE内核显示网页</li>
+<li>JSON Editor: JSON编辑器</li>
+<li>LastPass: 密码管理</li>
+<li>Octotree: GitHub&amp;GitLab代码树</li>
+<li>Postman: 模拟发送http请求</li>
+<li>RESTful Stress: RESTful API压力测试工具</li>
+<li>Wizdler: 解析WSDL文件，SOAP Web Service调试工具</li>
+<li>RegExp Tester: 正则</li>
+<li>Scroll Marker: 在浏览内容的最小方显示一条横杆，滚动页面时可以看到之前显示的位置</li>
+<li>Text Mode: 灰白模式查看网页</li>
+<li>Zed Code Editor: 轻量级代码编辑器</li>
+<li>Image Tool: 跟名字一个意思</li>
+<li>JavaScript Errors Notifier: 页面js报错提醒</li>
+<li>JetBrains IDE Support: 结合WebStorm&amp;IDEA调试js</li>
+<li>Appspector: 检测web网站使用的js和中间件技术
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/08/24/Chrome推荐插件/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-08-24T01:19:19.000Z"><a href="/2016/08/24/vimium-keymap/">2016-08-24</a></time>
       
       
@@ -127,9 +182,13 @@
 <li>Checkstyle</li>
 <li>PMD</li>
 <li>JProfiler</li>
-<li>JMeter</li>
 <li>VisualVM</li>
+<li>JMeter</li>
 <li>Cobertura</li>
+<li>Javancss</li>
+<li>JRebel</li>
+<li>Metrics</li>
+<li>JDepend</li>
 </ul>
 
       
@@ -414,48 +473,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-07T20:05:37.000Z"><a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/">2016-07-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/">Maven多模块中关于final static常量的一个坑</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="【背景】">【背景】</h1><p>多个独立的web项目合并到同一个Maven多模块项目中，目的是抽取公共模块，减少维护成本。<br>各个web项目的客户编码有不同的前缀，所以中各个web项目中都定义了一个常量，但是各个站点的值是不同的，中合并到一个Maven多模块项目后，抽取公共部分时由于中公共部分代码中需要用到这个常量，所以就随便将其中一个项目的该常量拿到了公共模块中，而各个站点的该常量保留，可是项目真正启动后，当使用该常量时发现其值一直是公共模块定义的，导致各个站点的客户编码使用了同样的前缀，从而出现了问题。</p>
-<h1 id="【结论】">【结论】</h1><p>如果公共模块中一个常量是各个站点都需要使用的，但是中各个单点的值又不一致，那么千万不要将该常量定义成final的。</p>
-<h1 id="【解决方法】">【解决方法】</h1><ul>
-<li>去除final定义即可</li>
-<li>将该常量定义到各个项目的配置文件中</li>
-</ul>
-<h1 id="【举例】">【举例】</h1>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -480,7 +497,7 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/其他/">其他</a><small>12</small></li>
+    <li><a href="/categories/其他/">其他</a><small>13</small></li>
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
@@ -511,7 +528,7 @@
   
     <li><a href="/tags/Echarts/">Echarts</a><small>1</small></li>
   
-    <li><a href="/tags/Git/">Git</a><small>3</small></li>
+    <li><a href="/tags/Git/">Git</a><small>4</small></li>
   
     <li><a href="/tags/Grails/">Grails</a><small>1</small></li>
   
