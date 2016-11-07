@@ -55,6 +55,42 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-09-11T02:06:53.000Z"><a href="/2015/09/11/ABAP基础之SQL语句/">2015-09-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/11/ABAP基础之SQL语句/">ABAP基础之SQL语句</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="SELECT语句读取单一记录">SELECT语句读取单一记录</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SINGLE * FROM TABLE INTO WA WHERE ID=?.&#10;IF SY-SUBRC = 0.&#10;    ...do something&#10;&#10;SELECT SINGLE MATNR ERSDA INTO (GV_MATNR, GV_ERSDA) FROM MARA WHERE ERSDA = &#39;20150701&#39;.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/11/ABAP基础之SQL语句/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-09-11T01:55:34.000Z"><a href="/2015/09/11/ABAP基础之结构与内表/">2015-09-11</a></time>
       
       
@@ -421,44 +457,13 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">supervisor vs pm2 vs forever</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
     <a href="/categories/后端/page/3/" class="alignleft prev">上一页</a>
   
+  
+    <a href="/categories/后端/page/5/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -480,7 +485,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>40</small></li>
+    <li><a href="/categories/后端/">后端</a><small>41</small></li>
   
   </ul>
 </div>
@@ -532,6 +537,8 @@
     <li><a href="/tags/SCM/">SCM</a><small>1</small></li>
   
     <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
+  
+    <li><a href="/tags/Solr/">Solr</a><small>1</small></li>
   
     <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
   

@@ -55,6 +55,40 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-11-07T05:46:21.000Z"><a href="/2016/11/07/Solr获取document的score和自定义排序/">2016-11-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/11/07/Solr获取document的score和自定义排序/">Solr获取document的score和自定义排序</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="获取每个document的score">获取每个document的score</h1><p>查询是时需要将score作为返回字段<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fl</span>=*,<span class="keyword">score</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="先根据具体字段再根据score排序">先根据具体字段再根据score排序</h1><p>Solr默认是按照score排序的，如果有下面需求，需要先按照某个字段排序（如类型），再按照score排序则需要传值<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sort</span>=字段名 ASC,<span class="keyword">score</span> <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-10-27T11:31:05.000Z"><a href="/2016/10/27/Git常用操作/">2016-10-27</a></time>
       
       
@@ -425,63 +459,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-08-24T01:19:19.000Z"><a href="/2016/08/24/vimium-keymap/">2016-08-24</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/08/24/vimium-keymap/">Vimium Keymap</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ul>
-<li>j: 向下细微滚动窗口</li>
-<li>k：向上细微滚动窗口</li>
-<li>J: 下一个标签页</li>
-<li>K：上一个标签页</li>
-<li>h：向左细微滚动窗口</li>
-<li>l：向右细微滚动窗口</li>
-<li>zH：一直移动到左部</li>
-<li>zL:一直移动到右部</li>
-<li>H: 后退</li>
-<li>L: 前进</li>
-<li>u：向上移动半个屏幕（相当于PageUp）</li>
-<li>d：向下滚动半个屏幕（相当于PageDown）</li>
-<li>gg：跳转到页面的顶部</li>
-<li>G：跳转到页面的底部</li>
-<li>r：重新载入该页（相当于F5刷新页面）</li>
-<li>x：关闭当前页面</li>
-<li>X：恢复刚刚关闭的页面</li>
-<li>o：相当于Chrome中的地址栏，可以匹配历史记录、收藏夹并在当前窗口打开，或者直接打开一个网址或者搜索一个关键字</li>
-<li>O：在新窗口中打开</li>
-<li>f：在当前的页面打开一个新的链接</li>
-<li>F：在新的页面打开一个新的链接
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/08/24/vimium-keymap/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -508,7 +485,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>40</small></li>
+    <li><a href="/categories/后端/">后端</a><small>41</small></li>
   
   </ul>
 </div>
@@ -560,6 +537,8 @@
     <li><a href="/tags/SCM/">SCM</a><small>1</small></li>
   
     <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
+  
+    <li><a href="/tags/Solr/">Solr</a><small>1</small></li>
   
     <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
   

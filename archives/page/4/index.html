@@ -55,6 +55,42 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-04-25T08:04:24.000Z"><a href="/2016/04/25/Drools之宏对象的常用方法/">2016-04-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/04/25/Drools之宏对象的常用方法/">Drools之宏对象的常用方法</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="insert、update、retract">insert、update、retract</h1><p><style>table{border-collapse:collapse;border-spacing:0;border-left:1px solid#888;border-top:1px solid#888;background:#efefef}th,td{border-right:1px solid#888;border-bottom:1px solid#888;padding:5px 15px}th{font-weight:700;background:#ccc}</style><table><tr><th width="15%">方法名称</th><th width="15%">用法格式</th><th>含义</th></tr><tr><td>getWorkingMemory()</td><td>drools.getWorkingMemory()</td><td>获取当前的WorkingMemory对象</td></tr><tr><td>halt()</td><td>drools.halt()</td><td>在当前规则执行完成后，不再执行其它未执行的规则。</td></tr><tr><td>getRule()</td><td>drools.getRule()</td><td>得到当前的规则对象</td></tr><tr><td>insert(new Object)</td><td>drools.insert(new Object)</td><td>向当前的WorkingMemory当中插入指定的对象，功能与宏函数insert相同。</td></tr><tr><td>update(new Object)</td><td>drools.update(new Object)</td><td>更新当前的WorkingMemory中指定的对象，功能与宏函数update相同。</td></tr><tr><td>update(FactHandle Object)</td><td>drools.update(FactHandle Object)</td><td>更新当前的WorkingMemory中指定的对象，功能与宏函数update相同。</td></tr><tr><td>retract(new Object)</td><td>drools.retract(new Object)</td><td>从当前的WorkingMemory中删除指定的对象，功能与宏函数retract相同。</td></tr></table><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/04/25/Drools之宏对象的常用方法/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-04-25T07:51:42.000Z"><a href="/2016/04/25/Drools之LHS和RHS/">2016-04-25</a></time>
       
       
@@ -374,44 +410,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-10-01T07:45:51.000Z"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">2015-10-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">JavaScript学习笔记之 斐波那契数列尾调用测试</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>为了验证JavaScript中尾调用的优点，所以做了计算斐波那契数列的尾调用写法和非尾调用写法的性能对比，结果是惊人的，真是不试不知道，一试吓一跳。</p>
-<p>这里我都是循环计算斐波那契数列第1-40位的数值，下面是各个环境的验证结果：<br><strong>Firefox: 普通写法:1000-1300 ms，尾调用写法:0-2 ms</strong><br><strong>Chrome: 普通写法:1550-1700 ms，尾调用写法:0-2 ms</strong><br><strong>IE9: 普通写法:46000+ ms，尾调用写法:0-2 ms</strong></p>
-<p>以上只是在我自己电脑上的3种浏览器测试的结果，但是可以看出其巨大的差异，所以多函数嵌套调用以及递归时，尽可能的使用尾调用。<a href="https://zaozaool.github.io/test-fibonacci.html">测试地址</a><br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -440,7 +438,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>40</small></li>
+    <li><a href="/categories/后端/">后端</a><small>41</small></li>
   
   </ul>
 </div>
@@ -492,6 +490,8 @@
     <li><a href="/tags/SCM/">SCM</a><small>1</small></li>
   
     <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
+  
+    <li><a href="/tags/Solr/">Solr</a><small>1</small></li>
   
     <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
   
