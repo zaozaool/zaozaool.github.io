@@ -55,6 +55,48 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-07-07T20:05:37.000Z"><a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/">2016-07-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/">Maven多模块中关于final static常量的一个坑</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="【背景】">【背景】</h1><p>多个独立的web项目合并到同一个Maven多模块项目中，目的是抽取公共模块，减少维护成本。<br>各个web项目的客户编码有不同的前缀，所以中各个web项目中都定义了一个常量，但是各个站点的值是不同的，中合并到一个Maven多模块项目后，抽取公共部分时由于中公共部分代码中需要用到这个常量，所以就随便将其中一个项目的该常量拿到了公共模块中，而各个站点的该常量保留，可是项目真正启动后，当使用该常量时发现其值一直是公共模块定义的，导致各个站点的客户编码使用了同样的前缀，从而出现了问题。</p>
+<h1 id="【结论】">【结论】</h1><p>如果公共模块中一个常量是各个站点都需要使用的，但是中各个单点的值又不一致，那么千万不要将该常量定义成final的。</p>
+<h1 id="【解决方法】">【解决方法】</h1><ul>
+<li>去除final定义即可</li>
+<li>将该常量定义到各个项目的配置文件中</li>
+</ul>
+<h1 id="【举例】">【举例】</h1>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-07-01T11:29:13.000Z"><a href="/2016/07/01/Mysql递归查询/">2016-07-01</a></time>
       
       
@@ -365,43 +407,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-04-25T07:51:42.000Z"><a href="/2016/04/25/Drools之LHS和RHS/">2016-04-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/04/25/Drools之LHS和RHS/">Drools之LHS和RHS</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="LHS">LHS</h1><h2 id="约束连接">约束连接</h2><p>对于对象内部的多个约束的连接，可以采用“&amp;&amp;”（and）、“||”(or)和“,”(and)来实现，表面上看“,”与“&amp;&amp;”具有相同的含义，但是有一点需要注意，“，”与“&amp;&amp;”和“||” 不能混合使用</p>
-<h2 id="比较操作符">比较操作符</h2><p>操作符包括：&gt;、&gt;=、&lt;、&lt;=、= =、!=、contains、not contains、memberof、not memberof、matches、not matches<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/04/25/Drools之LHS和RHS/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -430,7 +435,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>41</small></li>
+    <li><a href="/categories/后端/">后端</a><small>42</small></li>
   
   </ul>
 </div>
@@ -507,7 +512,7 @@
   
     <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
   
-    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+    <li><a href="/tags/算法/">算法</a><small>2</small></li>
   
     <li><a href="/tags/项目/">项目</a><small>3</small></li>
   

@@ -51,6 +51,41 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-04-28T07:49:23.000Z"><a href="/2016/04/28/Drools之使用注意点/">2016-04-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/04/28/Drools之使用注意点/">Drools之使用注意点</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.DRL中不要使用单引号，对于字符串一定使用双引号.</p>
+<p>2.如果集成了Spring，一定不能调用kieSession.dispose();</p>
+<p>3.stateful和stateless区别</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-04-25T08:04:24.000Z"><a href="/2016/04/25/Drools之宏对象的常用方法/">2016-04-25</a></time>
       
       
@@ -370,42 +405,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-01-02T10:13:52.000Z"><a href="/2016/01/02/GenScript-SAP项目/">2016-01-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/01/02/GenScript-SAP项目/">GenScript SAP项目</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="项目背景">项目背景</h1><p>GenScript是一家做生物的跨国公司，我有幸任职在IT部门担任Java开发工程师（在职），主要负责公司内部的SCM系统的开发及维护，虽然叫SCM，但是个人感觉这个系统就是一个ERP，里面包括了客户管理、物料管理、订单管理、生产管理、库存管理、发货管理、报表和财务等众多模块，由于功能太多，所以使得整个系统非常臃肿，而且由于是跨国公司，系统又没有做分布式部署，使用人群又是在全球各个地方，使得整个系统使用起来很慢，并因为各个站点不同的需求都集中到一个系统中，导致很多逻辑和程序上的Bug，或者因为一个Bug影响到所有站点的用户，非常影响公司内客户的使用体验，有些Bug可能会导致公司同事的日常工作会进行不下去，所以最终领导层决定，将这些模块拆分开，形成了3个订单系统（包括客户管理、订单管理），1个生产系统，2个发货系统，1个物料系统，将库存管理、发货管理以及报表、财务部分都整合进SAP，各个系统之间通过数据库层面同步、WebService传输、RFC/JCO传输等方式进行数据同步，通过这样的拆分达到各个系统因为地理位置进行分布式部署的目的，从而解决前面提到的问题。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/01/02/GenScript-SAP项目/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -433,7 +432,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>41</small></li>
+    <li><a href="/categories/后端/">后端</a><small>42</small></li>
   
   </ul>
 </div>
@@ -510,7 +509,7 @@
   
     <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
   
-    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+    <li><a href="/tags/算法/">算法</a><small>2</small></li>
   
     <li><a href="/tags/项目/">项目</a><small>3</small></li>
   

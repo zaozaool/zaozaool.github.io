@@ -368,6 +368,39 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-11-29T06:26:02.000Z"><a href="/2016/11/29/时间复杂度/">2016-11-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/11/29/时间复杂度/">时间复杂度</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>常见的时间复杂度有：常数阶O(1),对数阶O(log2n),线性阶O(n), 线性对数阶O(nlog2n),平方阶O(n2)，立方阶O(n3),…， k次方阶O(nk),指数阶O(2n)。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-11-07T05:46:21.000Z"><a href="/2016/11/07/Solr获取document的score及组合排序/">2016-11-07</a></time>
       
       
@@ -380,7 +413,9 @@
       
         <h1 id="获取每个document的score">获取每个document的score</h1><p>查询是时需要将score作为返回字段<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fl</span>=*,<span class="keyword">score</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="先根据具体字段再根据score排序">先根据具体字段再根据score排序</h1><p>Solr默认是按照score排序的，如果有下面需求，需要先按照某个字段排序（如类型），再按照score排序则需要传值<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sort</span>=字段名 ASC,<span class="keyword">score</span> <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure></p>
-
+<h1 id="删除索引">删除索引</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">id</span>&gt;</span>1<span class="tag">&lt;/<span class="title">id</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">query</span>&gt;</span>id:1<span class="tag">&lt;/<span class="title">query</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="清空索引">清空索引</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;&lt;query&gt;*<span class="symbol">:*&lt;/query&gt;&lt;/delete&gt;</span></span><br><span class="line">&lt;commit/&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer>
@@ -623,49 +658,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-08-25T05:35:39.000Z"><a href="/2016/08/25/JQuery源码分析笔记/">2016-08-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/08/25/JQuery源码分析笔记/">jQuery源码分析笔记</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ul>
-<li>js自调用匿名函数的两种写法：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, undefined</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;)(<span class="built_in">window</span>);</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, undefined</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;(<span class="built_in">window</span>));</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>undefined能够被重写，赋予新的值。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> = <span class="string">"now it's defined"</span>;</span><br><span class="line">alert( <span class="literal">undefined</span> );</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/08/25/JQuery源码分析笔记/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -692,7 +684,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>41</small></li>
+    <li><a href="/categories/后端/">后端</a><small>42</small></li>
   
   </ul>
 </div>
@@ -769,7 +761,7 @@
   
     <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
   
-    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+    <li><a href="/tags/算法/">算法</a><small>2</small></li>
   
     <li><a href="/tags/项目/">项目</a><small>3</small></li>
   

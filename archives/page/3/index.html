@@ -55,6 +55,47 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-07-13T08:51:26.000Z"><a href="/2016/07/13/tomcat启动不报错但是服务也没有启动成功/">2016-07-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/13/tomcat启动不报错但是服务也没有启动成功/">tomcat启动不报错但是服务也没有启动成功</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前遇到了一次tomcat启动时没有报任何错误，但是服务也没有启动成功，访问不了，后来同事帮忙在网上找到这样一篇文章，这里记录下<br><a href="http://blog.trifork.com/2011/03/18/debugging-the-dreaded-severe-error-listenerstart-and-severe-error-filterstart-tomcat-error-messages/" target="_blank" rel="external">DEBUGGING THE DREADED “SEVERE: ERROR LISTENERSTART” AND “SEVERE: ERROR FILTERSTART” TOMCAT ERROR MESSAGES</a></p>
+<p>具体操作：</p>
+<ol>
+<li><p>中web application下的WEB-INF/classes路径中创建logging.properties文件，其内容为：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.apache.catalina.core.ContainerBase.[Catalina].level = INFO //INFO&#32423;&#21035;&#21487;&#20197;&#26356;&#25913;&#10;org.apache.catalina.core.ContainerBase.[Catalina].handlers = java.util.logging.ConsoleHandler</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务，这个时候错误就会打印到控制台（catalina.out）</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-07-12T11:08:11.000Z"><a href="/2016/07/12/Jmesa使用总结-自定义Toolbar/">2016-07-12</a></time>
       
       
@@ -372,41 +413,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-04-28T07:49:23.000Z"><a href="/2016/04/28/Drools之使用注意点/">2016-04-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/04/28/Drools之使用注意点/">Drools之使用注意点</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.DRL中不要使用单引号，对于字符串一定使用双引号.</p>
-<p>2.如果集成了Spring，一定不能调用kieSession.dispose();</p>
-<p>3.stateful和stateless区别</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -435,7 +441,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>41</small></li>
+    <li><a href="/categories/后端/">后端</a><small>42</small></li>
   
   </ul>
 </div>
@@ -512,7 +518,7 @@
   
     <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
   
-    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+    <li><a href="/tags/算法/">算法</a><small>2</small></li>
   
     <li><a href="/tags/项目/">项目</a><small>3</small></li>
   
