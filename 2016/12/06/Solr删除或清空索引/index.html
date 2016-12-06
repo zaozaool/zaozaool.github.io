@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>第 2 页 | 前端 | ζζ</title>
+  <title>Solr删除或清空索引 | ζζ</title>
   <meta name="author" content="zaozaool. Powered by Hexo.js">
+  
+  <meta name="description" content="删除索引12&amp;lt;delete&amp;gt;&amp;lt;id&amp;gt;1&amp;lt;/id&amp;gt;&amp;lt;/delete&amp;gt;&amp;lt;commit/&amp;gt;
+或12&amp;lt;delete&amp;gt;&amp;lt;query&amp;gt;id:1&amp;lt;/query&amp;gt;&amp;lt;/delete&amp;gt;&amp;lt;commit/&amp;gt">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Solr删除或清空索引"/>
   <meta property="og:site_name" content="ζζ"/>
 
   
@@ -44,38 +47,59 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">前端</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-10-01T02:34:35.000Z"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">2015-10-01</a></time>
+        <time datetime="2016-12-06T05:49:26.000Z"><a href="/2016/12/06/Solr删除或清空索引/">2016-12-06</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">JavaScript学习笔记之 encodeURI、encodeURIComponent、escape、decodeURI、decodeURIComponent、unescape区别</a></h1>
+    <h1 class="title">Solr删除或清空索引</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>1.URI方法encodeURI、encodeURIComponent()、decodeURI()、decodeURIComponent()代替了BOM的escape()和unescape()方法。URI方法更可取，因为它们对所有Unicode符号编码,而BOM方法只能对ASCII符号正确编码。尽量避免使用escape()和unescape()方法。<br>
+        <h1 id="删除索引">删除索引</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">id</span>&gt;</span>1<span class="tag">&lt;/<span class="title">id</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">query</span>&gt;</span>id:1<span class="tag">&lt;/<span class="title">query</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="清空索引">清空索引</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;&lt;query&gt;*<span class="symbol">:*&lt;/query&gt;&lt;/delete&gt;</span></span><br><span class="line">&lt;commit/&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer>
       
         
-          <div class="alignleft">
-            <a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/#more" class="more-link">Read More</a>
-          </div>
+  
+  <div class="categories">
+    <a href="/categories/后端/">后端</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/Solr/">Solr</a>
+  </div>
+
         
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -83,54 +107,40 @@
 </article>
 
 
+<section id="comment">
+  <h1 class="title">唠叨几句吧</h1>
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-20T05:03:26.000Z"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">2015-07-20</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a></h1>
-  
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaozaool';
 
-    </header>
-    <div class="entry">
-      
-        <p>1.我们将 <code>&lt;script&gt;</code> 元素放在 HTML 文件底部的原因是，浏览器解析 HTML 似乎按照代码出现的顺序来的。如果 JavaScript被首先读取，它也应该影响下面的 HTML，但有时会出现问题，因为 JavaScript 会在 HTML 之前被加载，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。</p>
-<p>2.JS中的每一行都应该以一个分号结尾，以表明这一行的结束。如果你不这样做，可能会遇到意想不到的结果。</p>
-<p>3.变量提升只对var命令声明的变量有效，如果一个变量不是用var命令声明的，就不会发生变量提升。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaozaool';
 
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+      
+  
+</section>
 
-  
-
-  <nav id="pagination">
-  
-    <a href="/categories/前端/" class="alignleft prev">上一页</a>
-  
-  
-  <div class="clearfix"></div>
-</nav>
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">

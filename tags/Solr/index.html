@@ -55,6 +55,40 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-06T05:49:26.000Z"><a href="/2016/12/06/Solr删除或清空索引/">2016-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/06/Solr删除或清空索引/">Solr删除或清空索引</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="删除索引">删除索引</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">id</span>&gt;</span>1<span class="tag">&lt;/<span class="title">id</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">query</span>&gt;</span>id:1<span class="tag">&lt;/<span class="title">query</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="清空索引">清空索引</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;&lt;query&gt;*<span class="symbol">:*&lt;/query&gt;&lt;/delete&gt;</span></span><br><span class="line">&lt;commit/&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-11-07T05:46:21.000Z"><a href="/2016/11/07/Solr获取document的score及组合排序/">2016-11-07</a></time>
       
       
@@ -67,9 +101,7 @@
       
         <h1 id="获取每个document的score">获取每个document的score</h1><p>查询是时需要将score作为返回字段<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fl</span>=*,<span class="keyword">score</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="先根据具体字段再根据score排序">先根据具体字段再根据score排序</h1><p>Solr默认是按照score排序的，如果有下面需求，需要先按照某个字段排序（如类型），再按照score排序则需要传值<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sort</span>=字段名 ASC,<span class="keyword">score</span> <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="删除索引">删除索引</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">id</span>&gt;</span>1<span class="tag">&lt;/<span class="title">id</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">query</span>&gt;</span>id:1<span class="tag">&lt;/<span class="title">query</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="清空索引">清空索引</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;&lt;query&gt;*<span class="symbol">:*&lt;/query&gt;&lt;/delete&gt;</span></span><br><span class="line">&lt;commit/&gt;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer>
@@ -109,7 +141,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>42</small></li>
+    <li><a href="/categories/后端/">后端</a><small>43</small></li>
   
   </ul>
 </div>
@@ -162,7 +194,7 @@
   
     <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
   
-    <li><a href="/tags/Solr/">Solr</a><small>1</small></li>
+    <li><a href="/tags/Solr/">Solr</a><small>2</small></li>
   
     <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
   

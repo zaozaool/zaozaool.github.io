@@ -55,6 +55,40 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-06T05:49:26.000Z"><a href="/2016/12/06/Solr删除或清空索引/">2016-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/06/Solr删除或清空索引/">Solr删除或清空索引</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="删除索引">删除索引</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">id</span>&gt;</span>1<span class="tag">&lt;/<span class="title">id</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">query</span>&gt;</span>id:1<span class="tag">&lt;/<span class="title">query</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="清空索引">清空索引</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;&lt;query&gt;*<span class="symbol">:*&lt;/query&gt;&lt;/delete&gt;</span></span><br><span class="line">&lt;commit/&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-11-29T06:26:02.000Z"><a href="/2016/11/29/时间复杂度/">2016-11-29</a></time>
       
       
@@ -100,9 +134,7 @@
       
         <h1 id="获取每个document的score">获取每个document的score</h1><p>查询是时需要将score作为返回字段<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fl</span>=*,<span class="keyword">score</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="先根据具体字段再根据score排序">先根据具体字段再根据score排序</h1><p>Solr默认是按照score排序的，如果有下面需求，需要先按照某个字段排序（如类型），再按照score排序则需要传值<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sort</span>=字段名 ASC,<span class="keyword">score</span> <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="删除索引">删除索引</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">id</span>&gt;</span>1<span class="tag">&lt;/<span class="title">id</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">delete</span>&gt;</span><span class="tag">&lt;<span class="title">query</span>&gt;</span>id:1<span class="tag">&lt;/<span class="title">query</span>&gt;</span><span class="tag">&lt;/<span class="title">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="清空索引">清空索引</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;delete&gt;&lt;query&gt;*<span class="symbol">:*&lt;/query&gt;&lt;/delete&gt;</span></span><br><span class="line">&lt;commit/&gt;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer>
@@ -370,48 +402,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-07T20:05:37.000Z"><a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/">2016-07-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/">Maven多模块中关于final static常量的一个坑</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="【背景】">【背景】</h1><p>多个独立的web项目合并到同一个Maven多模块项目中，目的是抽取公共模块，减少维护成本。<br>各个web项目的客户编码有不同的前缀，所以中各个web项目中都定义了一个常量，但是各个站点的值是不同的，中合并到一个Maven多模块项目后，抽取公共部分时由于中公共部分代码中需要用到这个常量，所以就随便将其中一个项目的该常量拿到了公共模块中，而各个站点的该常量保留，可是项目真正启动后，当使用该常量时发现其值一直是公共模块定义的，导致各个站点的客户编码使用了同样的前缀，从而出现了问题。</p>
-<h1 id="【结论】">【结论】</h1><p>如果公共模块中一个常量是各个站点都需要使用的，但是中各个单点的值又不一致，那么千万不要将该常量定义成final的。</p>
-<h1 id="【解决方法】">【解决方法】</h1><ul>
-<li>去除final定义即可</li>
-<li>将该常量定义到各个项目的配置文件中</li>
-</ul>
-<h1 id="【举例】">【举例】</h1>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/07/07/Maven多模块中关于final-static常量的一个坑/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -438,7 +428,7 @@
   
     <li><a href="/categories/前端/">前端</a><small>12</small></li>
   
-    <li><a href="/categories/后端/">后端</a><small>42</small></li>
+    <li><a href="/categories/后端/">后端</a><small>43</small></li>
   
   </ul>
 </div>
@@ -491,7 +481,7 @@
   
     <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
   
-    <li><a href="/tags/Solr/">Solr</a><small>1</small></li>
+    <li><a href="/tags/Solr/">Solr</a><small>2</small></li>
   
     <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
   
